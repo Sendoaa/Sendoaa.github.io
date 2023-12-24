@@ -1,0 +1,39 @@
+.body_index {
+    background-color: #000;
+}
+
+.nav_index ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+}
+
+.nav_index ul li {
+    margin: 0 20px;
+}
+
+.nav_index ul li a:hover {
+    color: black;
+    cursor: pointer;
+
+    background-size: 100% 2px;
+}
+
+.nav_index ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    transition: background-size .3s;
+}
+
+.div_nav {
+    background-color: gray;
+    border-radius: 10px;
+    padding: 10px;
+}

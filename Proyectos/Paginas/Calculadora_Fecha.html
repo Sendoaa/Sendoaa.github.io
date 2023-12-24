@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/jpg" href="../Imagenes/Calculadora.png"/>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../css/Calculadora_Feha.css">
+    <title>Calculadora de Fecha</title>
+</head>
+<body class="body_fecha">
+    
+    <div class="div_nav">
+        <nav class="nav_index">
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="Paginas/Calculadora_Fecha.html">Calculadora de Fecha</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="container_fecha">
+        <h1>Calculadora de Fecha</h1>
+        <p><label for="birthdate">Introduce tu fecha de nacimiento</label></p>
+        <input type="date" id="birthdate"/>
+        <button onclick="calculateAge()">Calcular fecha</button>
+       
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function calculateAge(){
+            const birthdate = document.getElementById("birthdate").value;
+            const resultElement = document.getElementById("result");
+
+            if(birthdate){
+                const today = new Date();
+                const birthdateValue = new Date(birthdate);
+
+                let ageYears = today.getFullYear() - birthdateValue.getFullYear();
+                let ageMonths = today.getMonth() - birthdateValue.getMonth();
+                let ageDays = today.getDate() - birthdateValue.getDate();
+
+                if(ageDays < 0){
+                    ageMonths--;
+                    ageDays += new Date(
+                        today.getFullYear(),
+                        today.getMonth(),
+                        0
+                    ).getDate();
+                }
+
+                if(ageMonths < 0){
+                    ageYears--;
+                    ageMonths += 12;
+                }
+
+                resultElement.innerText = 'Tienes '+ageYears+' años, '+ageMonths+' meses y '+ageDays+ ' días.';
+                resultElement.style.color = "green";
+            } else {
+                resultElement.innerText = "Introduce tu fecha de nacimiento por favor";
+                resultElement.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>
